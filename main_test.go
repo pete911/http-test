@@ -29,7 +29,7 @@ func TestRunFullTrace(t *testing.T) {
 
 func TestRunLoad(t *testing.T) {
 	client := NewClient(DefaultTransport(), ConnTrace)
-	for i := 0; i < 100; i++ {
+	for range 100 {
 		res, err := client.Do(NewTestGetRequest(t, "https://google.com"))
 		require.NoError(t, err)
 		require.NoError(t, DiscardResponse(res))
